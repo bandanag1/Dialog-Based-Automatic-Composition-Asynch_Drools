@@ -1,0 +1,63 @@
+start
+
+currentQuestion.text 1 --> Are you looking for information (y/n)?
+currentAnswer.answer 1 --> yes
+
+currentQuestion.text 2 --> On which topics (topic1/topic2/topic3) - <Enter maximTopic1topics>?
+currentAnswer.answer 2 --> flood/social feeds/incidence report
+
+currentQuestion.text 3 --> How do you want to visualize flood (a - map, b - chart, c - table, d - webcam)?
+currentAnswer.answer 3 --> map
+currentTopic --> edu.vsr.massachusetts.algorithms.drools.Topic1@4c632208
+currentTopicName --> flood
+visualizationForTopic --> map
+
+currentQuestion.text 4 --> How do you want to visualize social feeds (a - map, b - chart, c - table, d - webcam)?
+currentAnswer.answer 4 --> chart
+currentTopic --> edu.vsr.massachusetts.algorithms.drools.Topic2@4f6266
+currentTopicName --> social feeds
+visualizationForTopic --> chart
+the chart is for Topic2
+
+currentQuestion.text 6 --> Which type of chart you are looking for (a - pieChart, b - lineChart, c - barChart, d - histogram, e - areaChart, f - otherChart)?
+currentAnswer.answer 6 --> pieChart
+topic name for the chart is retrieved as --> edu.vsr.massachusetts.algorithms.drools.Topic2@4f6266
+type of chart for Topic2 is --> pieChart
+
+currentQuestion.text 5 --> How do you want to visualize incidence report (a - map, b - chart, c - table, d - webcam)?
+currentAnswer.answer 5 --> chart
+currentTopic --> edu.vsr.massachusetts.algorithms.drools.Topic3@5bc516b2
+currentTopicName --> incidence report
+visualizationForTopic --> chart
+the chart is for Topic3
+
+currentQuestion.text 6 --> Which type of chart you are looking for (a - pieChart, b - lineChart, c - barChart, d - histogram, e - areaChart, f - otherChart)?
+currentAnswer.answer 6 --> otherChart
+topic name for the chart is retrieved as --> edu.vsr.massachusetts.algorithms.drools.Topic3@5bc516b2
+type of chart for Topic3 is --> otherChart
+topic name for the other chart is retrieved as --> edu.vsr.massachusetts.algorithms.drools.Topic3@5bc516b2
+
+currentQuestion.text 7 --> Please provide the name of the chart you would prefer?
+currentAnswer.answer 7 --> gantChart
+topic name for the other chart is retrieved again as --> edu.vsr.massachusetts.algorithms.drools.Topic3@5bc516b2
+type of other chart for Topic3 is --> gantChart
+
+currentQuestion.text 8 --> Do you need anything else (y/n)?
+currentAnswer.answer 8 --> yes
+
+currentQuestion.text 9 --> Do you need any communication tools (y/n)?
+currentAnswer.answer 9 --> yes
+
+currentQuestion.text 10 --> Which type of communication tool would you prefer (a - telecommunication, b - collaboration, c - instantMessaging, d - others)?
+currentAnswer.answer 10 --> telecommunication
+
+currentQuestion.text 11 --> Which mode of telecommunication you would prefer (a - telephoneConference, b - videoConference, c - telephoneCall, d - videoCall, e - mmsMessaging, f - smsMessaging)?
+currentAnswer.answer 11 --> telephoneConference
+
+currentQuestion.text 18 --> Do you want to compose the workspace now (y/n)?
+currentAnswer.answer 18 --> no
+
+currentQuestion.text 19 --> Ok, then are you looking for some (a - entertainment, b - creativity, c - others)?
+currentAnswer.answer 19 --> creativity
+
+Ok, composing the workspace

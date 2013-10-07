@@ -1,0 +1,775 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY mashup_capabilities "http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:mashup_capabilities="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <Ontology rdf:about="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl">
+        <rdfs:label xml:lang="en">Mashups capabilities ontology</rdfs:label>
+        <versionInfo rdf:datatype="&xsd;string">0.1</versionInfo>
+        <rdfs:comment xml:lang="en">This ontology is a part of a set of models developed for dialog based automatic mashup composition angine (ACE) developed within EU FP7 OMELETTE project.</rdfs:comment>
+        <mashup_capabilities:author>Vadim Chepegin (TIE Kinetix), Olexiy Chudnovskyy (TUC)</mashup_capabilities:author>
+        <imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <AnnotationProperty rdf:about="&mashup_capabilities;author"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#hasCapability -->
+
+    <ObjectProperty rdf:about="&mashup_capabilities;hasCapability">
+        <rdfs:range rdf:resource="&mashup_capabilities;Capability"/>
+        <rdfs:domain rdf:resource="&mashup_capabilities;Mashup"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#hasDatasource -->
+
+    <ObjectProperty rdf:about="&mashup_capabilities;hasDatasource">
+        <rdfs:range rdf:resource="&mashup_capabilities;DataSource"/>
+        <rdfs:domain rdf:resource="&mashup_capabilities;Visualization"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#hasGoal -->
+
+    <ObjectProperty rdf:about="&mashup_capabilities;hasGoal">
+        <rdfs:range rdf:resource="&mashup_capabilities;Goal"/>
+        <rdfs:domain rdf:resource="&mashup_capabilities;Mashup"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#hasModality -->
+
+    <ObjectProperty rdf:about="&mashup_capabilities;hasModality"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#hasProvider -->
+
+    <ObjectProperty rdf:about="&mashup_capabilities;hasProvider">
+        <rdfs:range rdf:resource="&mashup_capabilities;ServiceProvider"/>
+        <rdfs:domain rdf:resource="&mashup_capabilities;Telecommunication"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#satisfies -->
+
+    <ObjectProperty rdf:about="&mashup_capabilities;satisfies">
+        <rdfs:domain rdf:resource="&mashup_capabilities;Functionality"/>
+        <rdfs:range rdf:resource="&mashup_capabilities;Needs"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#isSatisfiedByCategory -->
+
+    <DatatypeProperty rdf:about="&mashup_capabilities;isSatisfiedByCategory">
+        <rdfs:comment>Category as defined by ProgrammableWeb: http://www.programmableweb.com/apis/directory/1?sort=category</rdfs:comment>
+        <rdfs:domain rdf:resource="&mashup_capabilities;Needs"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Aggregate -->
+
+    <Class rdf:about="&mashup_capabilities;Aggregate">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Capability"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Capability -->
+
+    <Class rdf:about="&mashup_capabilities;Capability"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Chart -->
+
+    <Class rdf:about="&mashup_capabilities;Chart">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Graphics"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Communicate -->
+
+    <Class rdf:about="&mashup_capabilities;Communicate">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Capability"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Communicate_together -->
+
+    <Class rdf:about="&mashup_capabilities;Communicate_together">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Together"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Create -->
+
+    <Class rdf:about="&mashup_capabilities;Create">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Goal"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#DataSource -->
+
+    <Class rdf:about="&mashup_capabilities;DataSource"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Doing_together -->
+
+    <Class rdf:about="&mashup_capabilities;Doing_together">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Together"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Fun -->
+
+    <Class rdf:about="&mashup_capabilities;Fun">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Goal"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Functionality -->
+
+    <Class rdf:about="&mashup_capabilities;Functionality">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Goal -->
+
+    <Class rdf:about="&mashup_capabilities;Goal"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Graphics -->
+
+    <Class rdf:about="&mashup_capabilities;Graphics">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Modality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Haptic -->
+
+    <Class rdf:about="&mashup_capabilities;Haptic">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Modality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Help -->
+
+    <Class rdf:about="&mashup_capabilities;Help">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Goal"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#How -->
+
+    <Class rdf:about="&mashup_capabilities;How">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Help"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#MMS -->
+
+    <Class rdf:about="&mashup_capabilities;MMS">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Multimedia"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Map -->
+
+    <Class rdf:about="&mashup_capabilities;Map">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Multimedia"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Mashup -->
+
+    <Class rdf:about="&mashup_capabilities;Mashup">
+        <equivalentClass>
+            <Restriction>
+                <onProperty rdf:resource="&mashup_capabilities;hasCapability"/>
+                <onClass rdf:resource="&mashup_capabilities;Capability"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </equivalentClass>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Modality -->
+
+    <Class rdf:about="&mashup_capabilities;Modality"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Multimedia -->
+
+    <Class rdf:about="&mashup_capabilities;Multimedia">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Modality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Needs -->
+
+    <Class rdf:about="&mashup_capabilities;Needs">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Organise -->
+
+    <Class rdf:about="&mashup_capabilities;Organise">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Capability"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Persist -->
+
+    <Class rdf:about="&mashup_capabilities;Persist">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Capability"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#SMS -->
+
+    <Class rdf:about="&mashup_capabilities;SMS">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Text"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#ServiceProvider -->
+
+    <Class rdf:about="&mashup_capabilities;ServiceProvider">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Share -->
+
+    <Class rdf:about="&mashup_capabilities;Share">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Capability"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Table -->
+
+    <Class rdf:about="&mashup_capabilities;Table">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Graphics"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Telecommunication -->
+
+    <Class rdf:about="&mashup_capabilities;Telecommunication">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Functionality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Text -->
+
+    <Class rdf:about="&mashup_capabilities;Text">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Modality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Together -->
+
+    <Class rdf:about="&mashup_capabilities;Together">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Goal"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Video -->
+
+    <Class rdf:about="&mashup_capabilities;Video">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Modality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Visualization -->
+
+    <Class rdf:about="&mashup_capabilities;Visualization">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Functionality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Visualize -->
+
+    <Class rdf:about="&mashup_capabilities;Visualize">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Capability"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#VoIP -->
+
+    <Class rdf:about="&mashup_capabilities;VoIP">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Voice"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Voice -->
+
+    <Class rdf:about="&mashup_capabilities;Voice">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Modality"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Web_Camera -->
+
+    <Class rdf:about="&mashup_capabilities;Web_Camera">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Video"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Whom -->
+
+    <Class rdf:about="&mashup_capabilities;Whom">
+        <rdfs:subClassOf rdf:resource="&mashup_capabilities;Help"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#ChartVisualization -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;ChartVisualization">
+        <rdf:type rdf:resource="&mashup_capabilities;Visualization"/>
+        <skos:prefLabel xml:lang="en">Chart visualization</skos:prefLabel>
+        <skos:altLabel xml:lang="en">display on chart</skos:altLabel>
+        <skos:altLabel xml:lang="en">present on chart</skos:altLabel>
+        <skos:altLabel xml:lang="en">show on chart</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;InformationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Chat -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Chat">
+        <rdf:type rdf:resource="&mashup_capabilities;Functionality"/>
+        <skos:prefLabel xml:lang="en">Chat</skos:prefLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#CommunicationNeed -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;CommunicationNeed">
+        <rdf:type rdf:resource="&mashup_capabilities;Needs"/>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Chat</mashup_capabilities:isSatisfiedByCategory>
+        <skos:prefLabel xml:lang="en">Communication</skos:prefLabel>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Email</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Fax</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">File Sharing</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Internet</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Messaging</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Telephony</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Tools</mashup_capabilities:isSatisfiedByCategory>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#CreativityNeed -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;CreativityNeed">
+        <rdf:type rdf:resource="&mashup_capabilities;Needs"/>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Blogging</mashup_capabilities:isSatisfiedByCategory>
+        <skos:prefLabel xml:lang="en">Creativity</skos:prefLabel>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Dating</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Education</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Events</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Food</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Internet</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Media Management</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Media Search</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Music</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Photos</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Spreadsheet</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Tools</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Utility</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Wiki</mashup_capabilities:isSatisfiedByCategory>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#DeveloperGarden -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;DeveloperGarden">
+        <rdf:type rdf:resource="&mashup_capabilities;ServiceProvider"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Drawing -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Drawing">
+        <rdf:type rdf:resource="&mashup_capabilities;Functionality"/>
+        <skos:altLabel xml:lang="en">Canvas</skos:altLabel>
+        <skos:prefLabel xml:lang="en">Drawing</skos:prefLabel>
+        <skos:altLabel xml:lang="en">draw a picture</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CreativityNeed"/>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#EntertainmentNeed -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;EntertainmentNeed">
+        <rdf:type rdf:resource="&mashup_capabilities;Needs"/>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Chat</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Dating</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Email</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Entertainment</mashup_capabilities:isSatisfiedByCategory>
+        <skos:prefLabel xml:lang="en">Entertainment</skos:prefLabel>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Events</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Food</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Games</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Internet</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Media Management</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Media Search</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Music</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Photos</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Science</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Shopping</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Social</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Sports</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Tools</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Travel</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Video</mashup_capabilities:isSatisfiedByCategory>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Films -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Films">
+        <rdf:type rdf:resource="&mashup_capabilities;Functionality"/>
+        <skos:prefLabel xml:lang="en">Watch a film</skos:prefLabel>
+        <skos:altLabel xml:lang="en">watch trailer</skos:altLabel>
+        <skos:altLabel xml:lang="en">watch video</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Games -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Games">
+        <rdf:type rdf:resource="&mashup_capabilities;Functionality"/>
+        <skos:prefLabel xml:lang="en">Play Games</skos:prefLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#InformationNeed -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;InformationNeed">
+        <rdf:type rdf:resource="&mashup_capabilities;Needs"/>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Advertising</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Answers</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Blogging</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Bookmark</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Calendar</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Catalog</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Dictionary</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Education</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Entertainment</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Events</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Financial</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Food</mashup_capabilities:isSatisfiedByCategory>
+        <skos:prefLabel xml:lang="en">Information</skos:prefLabel>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Job Search</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Music</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">News</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Politics</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Project Management</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Real Estate</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Recommendations</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Science</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Search</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Shopping</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Social</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Sports</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Tagging</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Transportation</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Travel</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Weather</mashup_capabilities:isSatisfiedByCategory>
+        <mashup_capabilities:isSatisfiedByCategory xml:lang="en">Web Search</mashup_capabilities:isSatisfiedByCategory>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#MMSMessaging -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;MMSMessaging">
+        <rdf:type rdf:resource="&mashup_capabilities;Telecommunication"/>
+        <skos:prefLabel xml:lang="en">MMS Messaging</skos:prefLabel>
+        <skos:altLabel xml:lang="en">MMS message</skos:altLabel>
+        <skos:altLabel xml:lang="en">Multimedia Messaging Service</skos:altLabel>
+        <skos:altLabel xml:lang="en">send MMS</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#MapVisualization -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;MapVisualization">
+        <rdf:type rdf:resource="&mashup_capabilities;Visualization"/>
+        <skos:prefLabel xml:lang="en">Map visualization</skos:prefLabel>
+        <skos:altLabel xml:lang="en">display on map</skos:altLabel>
+        <skos:altLabel xml:lang="en">present on map</skos:altLabel>
+        <skos:altLabel xml:lang="en">show on map</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;InformationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Music -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Music">
+        <rdf:type rdf:resource="&mashup_capabilities;Functionality"/>
+        <skos:prefLabel xml:lang="en">Listen to music</skos:prefLabel>
+        <skos:altLabel xml:lang="en">find songs</skos:altLabel>
+        <skos:altLabel xml:lang="en">listen to songs</skos:altLabel>
+        <skos:altLabel xml:lang="en">play music</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#SMSMessaging -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;SMSMessaging">
+        <rdf:type rdf:resource="&mashup_capabilities;Telecommunication"/>
+        <skos:prefLabel xml:lang="en">SMS Messaging</skos:prefLabel>
+        <skos:altLabel xml:lang="en">SMS message</skos:altLabel>
+        <skos:altLabel xml:lang="en">Short Message Service</skos:altLabel>
+        <skos:altLabel xml:lang="en">send SMS</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Skype -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Skype">
+        <rdf:type rdf:resource="&mashup_capabilities;ServiceProvider"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#TableVisualization -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;TableVisualization">
+        <rdf:type rdf:resource="&mashup_capabilities;Visualization"/>
+        <skos:prefLabel xml:lang="en">Table visualization</skos:prefLabel>
+        <skos:altLabel xml:lang="en">present on table</skos:altLabel>
+        <skos:altLabel xml:lang="en">show on table</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;InformationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#TelefoneCall -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;TelefoneCall">
+        <rdf:type rdf:resource="&mashup_capabilities;Telecommunication"/>
+        <skos:prefLabel xml:lang="en">Telephone call</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">VoIP call</skos:prefLabel>
+        <skos:altLabel xml:lang="en">phone call</skos:altLabel>
+        <skos:altLabel xml:lang="en">telephony</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#TelephoneConference -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;TelephoneConference">
+        <rdf:type rdf:resource="&mashup_capabilities;Telecommunication"/>
+        <skos:prefLabel xml:lang="en">Telephone conference</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">VoIP conference</skos:prefLabel>
+        <skos:altLabel xml:lang="en">telco</skos:altLabel>
+        <skos:altLabel xml:lang="en">telephone call</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#TextEditing -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;TextEditing">
+        <rdf:type rdf:resource="&mashup_capabilities;Functionality"/>
+        <skos:prefLabel xml:lang="en">Text Editing</skos:prefLabel>
+        <skos:altLabel xml:lang="en">edit text</skos:altLabel>
+        <skos:altLabel xml:lang="en">text editor</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CreativityNeed"/>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Tropo -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Tropo">
+        <rdf:type rdf:resource="&mashup_capabilities;ServiceProvider"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Twillio -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;Twillio">
+        <rdf:type rdf:resource="&mashup_capabilities;ServiceProvider"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#VideoCall -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;VideoCall">
+        <rdf:type rdf:resource="&mashup_capabilities;Telecommunication"/>
+        <skos:prefLabel xml:lang="en">Video call</skos:prefLabel>
+        <skos:altLabel xml:lang="en">video chat</skos:altLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#VideoConference -->
+
+    <NamedIndividual rdf:about="&mashup_capabilities;VideoConference">
+        <rdf:type rdf:resource="&mashup_capabilities;Telecommunication"/>
+        <skos:prefLabel xml:lang="en">Video conference</skos:prefLabel>
+        <mashup_capabilities:satisfies rdf:resource="&mashup_capabilities;CommunicationNeed"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

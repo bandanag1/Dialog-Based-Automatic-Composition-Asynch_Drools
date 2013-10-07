@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dialogue_s "http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dialogue_s="http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace">
+    <Ontology rdf:about="http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl">
+        <rdfs:comment>Dialogues ontology developed within the EU FP7 OMELETTE project for automatic mashup composition engine (ACE). This ontology is a key par in a process of goal elicitation from a user by means of a dialogue.</rdfs:comment>
+        <imports rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#hasOption -->
+
+    <ObjectProperty rdf:about="&dialogue_s;hasOption">
+        <rdfs:range rdf:resource="&dialogue_s;Choice_option"/>
+        <rdfs:domain rdf:resource="&dialogue_s;Closed_question"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#hasQuestionType -->
+
+    <ObjectProperty rdf:about="&dialogue_s;hasQuestionType">
+        <rdfs:domain rdf:resource="&dialogue_s;Ask"/>
+        <rdfs:range rdf:resource="&dialogue_s;Question"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#isAbout -->
+
+    <ObjectProperty rdf:about="&dialogue_s;isAbout">
+        <rdfs:domain rdf:resource="&dialogue_s;Question"/>
+        <rdfs:range rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Functionality"/>
+        <rdfs:range rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Needs"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#isFollowedBy -->
+
+    <ObjectProperty rdf:about="&dialogue_s;isFollowedBy">
+        <rdfs:domain rdf:resource="&dialogue_s;Dialogue_components"/>
+        <rdfs:range rdf:resource="&dialogue_s;Dialogue_components"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#isStartedWith -->
+
+    <ObjectProperty rdf:about="&dialogue_s;isStartedWith"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Ask -->
+
+    <Class rdf:about="&dialogue_s;Ask">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Dialogue_components"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Choice_option -->
+
+    <Class rdf:about="&dialogue_s;Choice_option"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Close -->
+
+    <Class rdf:about="&dialogue_s;Close">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Dialogue_components"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Closed_question -->
+
+    <Class rdf:about="&dialogue_s;Closed_question">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Question"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Cue_phrase -->
+
+    <Class rdf:about="&dialogue_s;Cue_phrase">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Dialogue_components"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Dialogue -->
+
+    <Class rdf:about="&dialogue_s;Dialogue"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Dialogue_components -->
+
+    <Class rdf:about="&dialogue_s;Dialogue_components"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Dialogue_type -->
+
+    <Class rdf:about="&dialogue_s;Dialogue_type">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Get_response -->
+
+    <Class rdf:about="&dialogue_s;Get_response">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Dialogue_components"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Multiple_choice_question -->
+
+    <Class rdf:about="&dialogue_s;Multiple_choice_question">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Closed_question"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Open -->
+
+    <Class rdf:about="&dialogue_s;Open">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Dialogue_components"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Open_question -->
+
+    <Class rdf:about="&dialogue_s;Open_question">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Question"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Question -->
+
+    <Class rdf:about="&dialogue_s;Question"/>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Re-initiate -->
+
+    <Class rdf:about="&dialogue_s;Re-initiate">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Dialogue_components"/>
+    </Class>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Simple_choice_question -->
+
+    <Class rdf:about="&dialogue_s;Simple_choice_question">
+        <rdfs:subClassOf rdf:resource="&dialogue_s;Closed_question"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Entity -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Entity">
+        <rdf:type rdf:resource="&dialogue_s;Choice_option"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Entity_list -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Entity_list">
+        <rdf:type rdf:resource="&dialogue_s;Choice_option"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Functionality -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Functionality">
+        <rdf:type rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Functionality"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Goal_elicitation -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Goal_elicitation">
+        <rdf:type rdf:resource="&dialogue_s;Dialogue_type"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#How_data_should_be_displayed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;How_data_should_be_displayed">
+        <rdf:type rdf:resource="&dialogue_s;Open_question"/>
+        <rdfs:label xml:lang="en">How do you want to display the data?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Entity"/>
+        <dialogue_s:isAbout rdf:resource="&dialogue_s;Visualization"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_collaboration_features_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_collaboration_features_needed">
+        <rdf:type rdf:resource="&dialogue_s;Simple_choice_question"/>
+        <rdfs:label xml:lang="en">Do you want to work collaboratively?</rdfs:label>
+        <dialogue_s:isAbout rdf:resource="&dialogue_s;Functionality"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;No"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Not_important"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Yes"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_communication_tools_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_communication_tools_needed">
+        <rdf:type rdf:resource="&dialogue_s;Simple_choice_question"/>
+        <rdfs:label xml:lang="en">Do you need communication tools?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;No"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Yes"/>
+        <dialogue_s:isAbout rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#CommunicationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_creativity_tools_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_creativity_tools_needed">
+        <rdf:type rdf:resource="&dialogue_s;Simple_choice_question"/>
+        <rdfs:label xml:lang="en">Do you need tools for work?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;No"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Yes"/>
+        <dialogue_s:isAbout rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#CreativityNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_entertainment_tools_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_entertainment_tools_needed">
+        <rdf:type rdf:resource="&dialogue_s;Simple_choice_question"/>
+        <rdfs:label xml:lang="en">Do you need entertainment tools?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;No"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Yes"/>
+        <dialogue_s:isAbout rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#EntertainmentNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_information_tools_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_information_tools_needed">
+        <rdf:type rdf:resource="&dialogue_s;Simple_choice_question"/>
+        <rdfs:label xml:lang="en">Do you want to find data?</rdfs:label>
+        <rdfs:label xml:lang="de">Wollen Sie Informationen finden?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;No"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Yes"/>
+        <dialogue_s:isAbout rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#InformationNeed"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_only_free_services_should_be_considered -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_only_free_services_should_be_considered">
+        <rdf:type rdf:resource="&dialogue_s;Simple_choice_question"/>
+        <rdfs:label xml:lang="en">Are you interested only in free services?</rdfs:label>
+        <dialogue_s:isAbout rdf:resource="&dialogue_s;Functionality"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;No"/>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Yes"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#If_specific_provider_is_preferred -->
+
+    <NamedIndividual rdf:about="&dialogue_s;If_specific_provider_is_preferred">
+        <rdf:type rdf:resource="&dialogue_s;Open_question"/>
+        <rdfs:label xml:lang="en">Do you prefer some specific provider?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Entity"/>
+        <dialogue_s:isAbout rdf:resource="&dialogue_s;Telecommunication"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#No -->
+
+    <NamedIndividual rdf:about="&dialogue_s;No">
+        <rdf:type rdf:resource="&dialogue_s;Choice_option"/>
+        <rdfs:label xml:lang="en">No</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Not_important -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Not_important">
+        <rdf:type rdf:resource="&dialogue_s;Choice_option"/>
+        <rdfs:label xml:lang="en">Not important</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Telecommunication -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Telecommunication">
+        <rdf:type rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Telecommunication"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Visualization -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Visualization">
+        <rdf:type rdf:resource="http://www.ict-omelette.eu/ontologies/ace/mashup_capabilities.owl#Visualization"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Which_creativity_tools_are_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Which_creativity_tools_are_needed">
+        <rdf:type rdf:resource="&dialogue_s;Open_question"/>
+        <rdfs:label xml:lang="en">Which kind of creativity tools do you need?</rdfs:label>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Which_data_source_should_be_displayed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Which_data_source_should_be_displayed">
+        <rdf:type rdf:resource="&dialogue_s;Open_question"/>
+        <rdfs:label xml:lang="en">Which data are you looking for?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Entity_list"/>
+        <dialogue_s:isAbout rdf:resource="&dialogue_s;Visualization"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Which_entertainment_tools_needed -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Which_entertainment_tools_needed">
+        <rdf:type rdf:resource="&dialogue_s;Open_question"/>
+        <rdfs:label xml:lang="en">Which kind of entertainment tools do you prefer?</rdfs:label>
+        <dialogue_s:hasOption rdf:resource="&dialogue_s;Entity_list"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.ict-omelette.eu/ontologies/ace/dialogue_s.owl#Yes -->
+
+    <NamedIndividual rdf:about="&dialogue_s;Yes">
+        <rdf:type rdf:resource="&dialogue_s;Choice_option"/>
+        <rdfs:label xml:lang="en">Yes</rdfs:label>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

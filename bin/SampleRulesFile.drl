@@ -1,0 +1,1072 @@
+package edu.vsr.massachusetts.algorithms.drools;
+ 
+import java.util.LinkedList;
+
+
+global DroolsQuestion currentQuestion;
+global UserInput currentAnswer;
+global DroolsState droolsState;
+
+declare Information  content: java.util.List keywords: String end
+rule "InformationKeywords"	when f: Information() then f.setKeywords("information, knowledge, familiariy, events"); end
+
+declare Map  
+	content: java.util.List 
+	keywords: String
+	topic: Object 
+end
+rule "MapKeywords"	when f: Map() then f.setKeywords("map, visualize, display"); end
+
+declare Chart  
+	content: java.util.List 
+	keywords: String
+	topic: Object
+end
+rule "ChartKeywords"	when f: Chart() then f.setKeywords("chart, visualize, display"); end
+
+declare PieChart  
+	content: java.util.List 
+	keywords: String 
+	topic: Object
+end
+rule "PieChartKeywords"	when f: PieChart() then f.setKeywords("piechart, charts, visualize, display"); end
+
+declare LineChart  
+	content: java.util.List 
+	keywords: String
+	topic: Object 
+end
+rule "LineChartKeywords"	when f: LineChart() then f.setKeywords("linechart, charts, visualize, display"); end
+
+declare BarChart  
+	content: java.util.List 
+	keywords: String
+	topic: Object 
+end
+rule "BarChartKeywords"	when f: BarChart() then f.setKeywords("barchart, charts, visualize, display"); end
+
+declare Histogram  
+	content: java.util.List
+	keywords: String
+	topic: Object
+end
+rule "HistogramKeywords"	when f: Histogram() then f.setKeywords("histogram, charts, visualize, display"); end
+
+declare GantChart
+	content: java.util.List
+	keywords: String
+end
+rule "GantChartKeywords"	when f: GantChart() then f.setKeywords("gantChart, charts, visualize, display"); end
+
+declare AreaChart  
+	content: java.util.List
+	keywords: String
+	topic: Object
+end
+rule "AreaChartKeywords"	when f: AreaChart() then f.setKeywords("areaChart, charts, visualize, display"); end
+
+declare OtherChart  
+	content: java.util.List
+	keywords: String
+	topic: Object
+end
+rule "OtherChartKeywords"	when f: OtherChart() then f.setKeywords("charts, visualize, display"); end
+
+declare Table  
+	content: java.util.List 
+	keywords: String
+	topic: Object 
+end
+rule "TableKeywords"	when f: Table() then f.setKeywords("table, visualize, display"); end
+
+declare WebCam  
+	content: java.util.List 
+	keywords: String
+	topic: Object 
+end
+rule "WebCamKeywords"	when f: WebCam() then f.setKeywords("web camera, camera, visualize, display"); end
+
+declare List  
+	content: java.util.List 
+	keywords: String 
+	topic: Object
+end
+rule "ListKeywords"	when f: WebCam() then f.setKeywords("list, visualize, display"); end
+
+declare ContinueFurther  content: java.util.List keywords: String end
+rule "ContinueFurtherKeywords"	when f: ContinueFurther() then f.setKeywords("continue"); end
+
+declare Communication  content: java.util.List keywords: String end
+rule "CommunicationKeywords"	when f: Communication() then f.setKeywords("communication, conversation"); end
+
+declare CommunicationTool  content: java.util.List keywords: String end
+rule "CommunicationToolKeywords"	when f: CommunicationTool() then f.setKeywords("communication tool, amusement, fun"); end
+
+declare TeleCommunication  content: java.util.List keywords: String end
+rule "TeleCommunicationKeywords"	when f: TeleCommunication() then f.setKeywords("telephone communication, communication, functionality, telco"); end
+
+declare Collaboration  content: java.util.List keywords: String end
+rule "CollaborationKeywords"	when f: Collaboration() then f.setKeywords("collaboration, communication"); end
+
+declare InstantMessaging  content: java.util.List keywords: String end
+rule "InstantMessagingKeywords"	when f: InstantMessaging() then f.setKeywords("messaging, chat, communication, collaboration, text"); end
+
+declare OtherCommunicationTools  content: java.util.List keywords: String end
+rule "OtherCommunicationToolsKeywords"	when f: OtherCommunicationTools() then f.setKeywords("communication tool, amusement, fun"); end
+
+declare TelephoneConference  content: java.util.List keywords: String end
+rule "TelephoneConferenceKeywords"	when f: TelephoneConference() then f.setKeywords("telephone conference, teleconference, call, phone, audio, telco"); end
+
+declare VideoConference  content: java.util.List keywords: String end
+rule "VideoConferenceKeywords"	when f: VideoConference() then f.setKeywords("video conference, call, phone, video, telco"); end
+
+declare TelephoneCall  content: java.util.List keywords: String end
+rule "TelephoneCallKeywords"	when f: TelephoneCall() then f.setKeywords("telephone, call, phone, audio, telco"); end
+
+declare VideoCall  content: java.util.List keywords: String end
+rule "VideoCallKeywords"	when f: VideoCall() then f.setKeywords("video call, call, video, phone, telco"); end
+
+declare MMSMessaging  content: java.util.List keywords: String end
+rule "MMSMessagingKeywords"	when f: MMSMessaging() then f.setKeywords("mms messaging, mms, messaging, telco, video"); end
+
+declare SMSMessaging  content: java.util.List keywords: String end
+rule "SMSMessagingKeywords"	when f: SMSMessaging() then f.setKeywords("sms messaging, sms, messaging, telco, text, text messaging, texting"); end
+
+declare CollaborativeTextEditing  content: java.util.List keywords: String end
+rule "CollaborativeTextEditingKeywords"	when f: CollaborativeTextEditing() then f.setKeywords("collaboration, communication, text editing, editing"); end
+
+declare CollaborativeDrawing  content: java.util.List keywords: String end
+rule "CollaborativeDrawingKeywords"	when f: CollaborativeDrawing() then f.setKeywords("collaboration, communication, drawing"); end
+
+declare OtherCollaborationTools  content: java.util.List keywords: String end
+rule "OtherCollaborationToolsKeywords"	when f: OtherCollaborationTools() then f.setKeywords("collaboration, communication"); end
+
+declare Chat  content: java.util.List keywords: String end
+rule "ChatKeywords"	when f: Chat() then f.setKeywords("chat, collaboration, communication, network, social"); end
+
+declare Twitter  content: java.util.List keywords: String end
+rule "TwitterKeywords"	when f: Twitter() then f.setKeywords("collaboration, social, communication, network, social feed, twitter, social trends"); end
+
+declare Facebook  content: java.util.List keywords: String end
+rule "FacebookKeywords"	when f: Facebook() then f.setKeywords("collaboration, social, communication, network, social feed, facebook, social trends"); end
+
+declare OtherInstantMessagingTools  content: java.util.List keywords: String end
+rule "OtherInstantMessagingToolsKeywords"	when f: OtherInstantMessagingTools() then f.setKeywords("collaboration, social, communication, network"); end
+
+declare MoreDetails  content: java.util.List keywords: String end
+rule "MoreDetailsKeywords"	when f: MoreDetails() then f.setKeywords("information, data, details"); end
+
+declare Entertainment  content: java.util.List keywords: String end
+rule "EntertainmentKeywords"	when f: Entertainment() then f.setKeywords("entertainment, fun"); end
+
+declare Creativity  content: java.util.List keywords: String end
+rule "CreativityKeywords"	when f: Creativity() then f.setKeywords("data, creativity"); end
+
+declare OtherDetails  content: java.util.List keywords: String end
+rule "OtherDetailsKeywords"	when f: OtherDetails() then f.setKeywords("details, data"); end
+
+declare EndStatement  content: java.util.List keywords: String end
+rule "EndStatementKeywords"	when f: EndStatement() then f.setKeywords("endstatement, end, finish"); end
+
+declare WaitForInformationAnswer
+end
+
+declare WaitForInformationTopicsAnswer
+end
+
+declare WaitForVisualizeTopic1Answer	
+	topicObject: Topic1
+end
+
+declare WaitForVisualizeTopic2Answer
+	topicObject: Topic2
+end
+
+declare WaitForVisualizeTopic3Answer
+	topicObject: Topic3
+end
+
+declare WaitForChart
+	chartsObject: Chart
+end
+
+declare WaitForOtherChart
+	otherChartObject: OtherChart
+end
+
+declare WaitForContinueFurther
+end
+
+declare WaitForCommunication
+end
+
+declare WaitForCommunicationTool
+end
+
+declare WaitForTeleCommunication
+end
+
+declare WaitForCollaboration
+end
+
+declare WaitForOtherCollaborationTools
+end
+
+declare WaitForInstantMessaging
+end
+
+declare WaitForChat
+end
+
+declare WaitForOtherInstantMessagingTools
+end
+
+declare WaitForOtherCommunicationTools
+end
+
+declare WaitForMoreInfo
+end
+
+declare WaitForMoreDetails
+end
+
+declare WaitForOtherDetails
+end
+
+rule "Start"
+    when
+        eval(true)
+    then        
+        System.out.println( "start" );
+        System.out.println("");
+                
+        currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+        currentQuestion.text = "Are you looking for information (y/n)?";
+        
+        LinkedList<String> options = new LinkedList<String>();
+        options.add("yes");
+        options.add("no");
+        currentQuestion.options = options;
+        
+        insert(new WaitForInformationAnswer());
+       
+        drools.halt();
+end
+
+
+rule "WaitForInformationAnswer"
+	salience 100
+	when 
+		WaitForInformationAnswer()
+	then		
+		System.out.println("currentQuestion.text 1 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 1 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("yes"))
+			insert(new Information());
+			
+        drools.halt();
+end
+
+rule "Information"
+	salience 99
+	when
+		fact: Information()
+	then
+		currentQuestion.type = DroolsQuestionType.OPEN;
+        currentQuestion.text = "On which topics (topic1/topic2/topic3) - <Enter maximTopic1topics>?";
+		insert(new WaitForInformationTopicsAnswer());
+		
+		drools.halt();
+end
+
+rule "WaitForInformationTopicsAnswer"
+	salience 99
+	when 
+		WaitForInformationTopicsAnswer()
+	then	
+		String[] answer = currentAnswer.answer.split("/");
+		
+		System.out.println("");
+		System.out.println("currentQuestion.text 2 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 2 --> " + currentAnswer.answer);
+		
+		insert(new Topic1(answer[0]));
+		if(answer.length > 1) {
+			insert(new Topic2(answer[1]));
+		}
+		if(answer.length > 2) {
+			insert(new Topic3(answer[2]));
+		}
+			
+        drools.halt();
+end
+
+rule "VisualizeTopic1"
+	salience 98
+	when
+		fact: Topic1()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+		String topic1 = fact.getTopic();
+		
+        currentQuestion.text = String.format("How do you want to visualize %s (a - map, b - chart, c - table, d - webcam, e - list)?",topic1);
+        
+        insert(new WaitForVisualizeTopic1Answer(fact));
+        
+        drools.halt();		
+end
+
+rule "WaitForVisualizeTopic1Answer"
+	salience 98
+	when 
+		fact: WaitForVisualizeTopic1Answer()
+	then	
+		String[] answer = currentAnswer.answer.split("/");
+		
+		System.out.println("");
+		System.out.println("currentQuestion.text 3 --> " + currentQuestion.text);
+		for(int i=0; i<currentAnswer.length; i++) {
+			System.out.println("currentAnswer.answers 3 --> " + currentAnswer.answers[i]);
+		}
+		
+		Topic1 currentTopic =  fact.getTopicObject();
+		String currentTopicName =  currentTopic.getTopic();
+		
+		System.out.println("currentTopic --> " + currentTopic);
+		System.out.println("currentTopicName --> " + currentTopicName);
+		
+		String[] visualizationsForTopic = currentAnswer.answers;
+		currentTopic.setVisualizationsForTopic(visualizationsForTopic);
+		
+		for(int i=0; i<visualizationsForTopic.length; i++) {
+			System.out.println("visualizationsForTopic 1 --> " + visualizationsForTopic[i]);
+		}		
+		
+		for (int i=0; i<currentAnswer.length; i++) {				
+			if(currentAnswer.answers[i].equals("map")) {
+				Map mapObjTopic1 = new Map();
+				mapObjTopic1.setTopic(currentTopic);
+				insert(mapObjTopic1);
+			}
+			if(currentAnswer.answers[i].equals("chart")) {
+				Chart chartObjTopic1 = new Chart();
+				chartObjTopic1.setTopic(currentTopic);
+				insert(chartObjTopic1);
+			}
+			if(currentAnswer.answers[i].equals("table")) {
+				Table tableObjTopic1 = new Table();
+				tableObjTopic1.setTopic(currentTopic);
+				insert(tableObjTopic1);
+			}
+			if(currentAnswer.answers[i].equals("webcam")) {
+				WebCam webcamObjTopic1 = new WebCam();
+				webcamObjTopic1.setTopic(currentTopic);
+				insert(webcamObjTopic1);
+			}
+			if(currentAnswer.answers[i].equals("list")) {
+				List listObjTopic1 = new List();
+				listObjTopic1.setTopic(currentTopic);
+				insert(listObjTopic1);
+			}
+		}
+		
+        drools.halt();
+end
+
+rule "VisualizeTopic2"
+	salience 97
+	when
+		fact: Topic2()
+	then	
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+		String topic2 = fact.getTopic();
+        currentQuestion.text = String.format("How do you want to visualize %s (a - map, b - chart, c - table, d - webcam, e - list)?",topic2);
+        
+        insert(new WaitForVisualizeTopic2Answer(fact));
+        
+        drools.halt();
+end
+
+rule "WaitForVisualizeTopic2Answer"
+	salience 97
+	when 
+		fact: WaitForVisualizeTopic2Answer()
+	then	
+String[] answer = currentAnswer.answer.split("/");
+		
+		System.out.println("");
+		System.out.println("currentQuestion.text 3 --> " + currentQuestion.text);
+		for(int i=0; i<currentAnswer.length; i++) {
+			System.out.println("currentAnswer.answers 3 --> " + currentAnswer.answers[i]);
+		}
+		
+		Topic2 currentTopic =  fact.getTopicObject();
+		String currentTopicName =  currentTopic.getTopic();
+		
+		System.out.println("currentTopic --> " + currentTopic);
+		System.out.println("currentTopicName --> " + currentTopicName);
+		
+		String[] visualizationsForTopic = currentAnswer.answers;
+		currentTopic.setVisualizationsForTopic(visualizationsForTopic);
+		
+		for(int i=0; i<visualizationsForTopic.length; i++) {
+			System.out.println("visualizationsForTopic 2 --> " + visualizationsForTopic[i]);
+		}		
+		
+		for (int i=0; i<currentAnswer.length; i++) {				
+			if(currentAnswer.answers[i].equals("map")) {
+				Map mapObjTopic2 = new Map();
+				mapObjTopic2.setTopic(currentTopic);
+				insert(mapObjTopic2);
+			}
+			if(currentAnswer.answers[i].equals("chart")) {
+				Chart chartObjTopic2 = new Chart();
+				chartObjTopic2.setTopic(currentTopic);
+				insert(chartObjTopic2);
+			}
+			if(currentAnswer.answers[i].equals("table")) {
+				Table tableObjTopic2 = new Table();
+				tableObjTopic2.setTopic(currentTopic);
+				insert(tableObjTopic2);
+			}
+			if(currentAnswer.answers[i].equals("webcam")) {
+				WebCam webcamObjTopic2 = new WebCam();
+				webcamObjTopic2.setTopic(currentTopic);
+				insert(webcamObjTopic2);
+			}
+			if(currentAnswer.answers[i].equals("list")) {
+				List listObjTopic2 = new List();
+				listObjTopic2.setTopic(currentTopic);
+				insert(listObjTopic2);
+			}
+		}
+		
+        drools.halt();
+end
+
+rule "VisualizeTopic3"
+	salience 96
+	when
+		fact: Topic3()
+	then	
+		//currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+		currentQuestion.type = DroolsQuestionType.MULTIPLE_CHOICE;
+		String topic3 = fact.getTopic();
+        currentQuestion.text = String.format("How do you want to visualize %s (a - map, b - chart, c - table, d - webcam, e - list)?",topic3);
+        
+        insert(new WaitForVisualizeTopic3Answer(fact));
+        
+        drools.halt();
+end
+
+rule "WaitForVisualizeTopic3Answer"
+	salience 96
+	when 
+		fact: WaitForVisualizeTopic3Answer()
+	then
+		String[] answer = currentAnswer.answer.split("/");
+		
+		System.out.println("");
+		System.out.println("currentQuestion.text 3 --> " + currentQuestion.text);
+		for(int i=0; i<currentAnswer.length; i++) {
+			System.out.println("currentAnswer.answers 3 --> " + currentAnswer.answers[i]);
+		}
+		
+		Topic3 currentTopic =  fact.getTopicObject();
+		String currentTopicName =  currentTopic.getTopic();
+		
+		System.out.println("currentTopic --> " + currentTopic);
+		System.out.println("currentTopicName --> " + currentTopicName);
+		
+		String[] visualizationsForTopic = currentAnswer.answers;
+		currentTopic.setVisualizationsForTopic(visualizationsForTopic);
+		
+		for(int i=0; i<visualizationsForTopic.length; i++) {
+			System.out.println("visualizationsForTopic 3 --> " + visualizationsForTopic[i]);
+		}		
+		
+		for (int i=0; i<currentAnswer.length; i++) {				
+			if(currentAnswer.answers[i].equals("map")) {
+				Map mapObjTopic3 = new Map();
+				mapObjTopic3.setTopic(currentTopic);
+				insert(mapObjTopic3);
+			}
+			if(currentAnswer.answers[i].equals("chart")) {
+				Chart chartObjTopic3 = new Chart();
+				chartObjTopic3.setTopic(currentTopic);
+				insert(chartObjTopic3);
+			}
+			if(currentAnswer.answers[i].equals("table")) {
+				Table tableObjTopic3 = new Table();
+				tableObjTopic3.setTopic(currentTopic);
+				insert(tableObjTopic3);
+			}
+			if(currentAnswer.answers[i].equals("webcam")) {
+				WebCam webcamObjTopic3 = new WebCam();
+				webcamObjTopic3.setTopic(currentTopic);
+				insert(webcamObjTopic3);
+			}
+			if(currentAnswer.answers[i].equals("list")) {
+				List listObjTopic3 = new List();
+				listObjTopic3.setTopic(currentTopic);
+				insert(listObjTopic3);
+			}
+		}
+		
+        drools.halt();
+end
+
+rule "VisualizeChart"
+	salience 98
+	when
+		fact: Chart()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;		
+		currentQuestion.text = "Which type of chart you are looking for (a - pieChart, b - lineChart, c - barChart, d - histogram, e - areaChart, f - otherChart)?";
+
+		String topic = fact.getTopic().toString();
+
+		if(topic.contains("Topic1")) {
+			System.out.println("the chart is for Topic1");
+		} else if(topic.contains("Topic2")) {
+			System.out.println("the chart is for Topic2");
+		} else {
+			System.out.println("the chart is for Topic3");
+		}		
+		
+		insert(new WaitForChart(fact));
+
+        drools.halt();		
+end
+
+rule "WaitForChart"
+	salience 98
+	when 
+		fact: WaitForChart()
+	then			
+		System.out.println("");
+		System.out.println("currentQuestion.text 6 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 6 --> " + currentAnswer.answer);
+		
+		Object currentTopic = fact.getChartsObject().getTopic();
+		
+		String topicName = currentTopic.toString();		
+		System.out.println("topic name for the chart is retrieved as --> " + topicName);
+		
+		OtherChart otherChartObjTopic = new OtherChart();
+		
+		if(topicName.contains("Topic1")) {
+			Topic1 objTopic1 = (Topic1)currentTopic;
+			objTopic1.setTypeOfChart(currentAnswer.answer);
+			otherChartObjTopic.setTopic(objTopic1);
+		} else if(topicName.contains("Topic2")) {
+			Topic2 objTopic2 = (Topic2)currentTopic;
+			objTopic2.setTypeOfChart(currentAnswer.answer);
+			otherChartObjTopic.setTopic(objTopic2);
+		} else {
+			Topic3 objTopic3 = (Topic3)currentTopic;
+			objTopic3.setTypeOfChart(currentAnswer.answer);
+			otherChartObjTopic.setTopic(objTopic3);		
+		}		
+		
+		if(currentAnswer.answer.equals("pieChart"))
+			insert(new PieChart());
+		if(currentAnswer.answer.equals("lineChart"))
+			insert(new LineChart());
+		if(currentAnswer.answer.equals("barChart"))
+			insert(new BarChart());
+		if(currentAnswer.answer.equals("histogram"))
+			insert(new Histogram());
+		if(currentAnswer.answer.equals("areaChart"))
+			insert(new AreaChart());
+		if(currentAnswer.answer.equals("otherChart"))
+			insert(otherChartObjTopic);
+
+        if(topicName.contains("Topic1")) {
+			Topic1 objTopic1 = (Topic1)currentTopic;
+			System.out.println("type of chart for Topic1 is --> " + objTopic1.getTypeOfChart());
+		} else if(topicName.contains("Topic2")) {
+			Topic2 objTopic2 = (Topic2)currentTopic;
+			System.out.println("type of chart for Topic2 is --> " + objTopic2.getTypeOfChart());
+		} else {
+			Topic3 objTopic3 = (Topic3)currentTopic;
+			System.out.println("type of chart for Topic3 is --> " + objTopic3.getTypeOfChart());
+		}		
+
+		drools.halt();
+end
+
+rule "VisualizeOtherChart"
+	salience 97
+	when
+		fact: OtherChart()		
+	then
+		currentQuestion.type = DroolsQuestionType.OPEN;
+        currentQuestion.text = "Please provide the name of the chart you would prefer?";
+        
+        Object currentTopic = fact.getTopic();        
+		String topicName = currentTopic.toString();
+		System.out.println("topic name for the other chart is retrieved as --> " + topicName);
+
+		insert(new WaitForOtherChart(fact));
+		
+		drools.halt();
+end
+
+rule "WaitForOtherChart"
+	salience 97
+	when 
+		fact: WaitForOtherChart()
+	then		
+		System.out.println("");
+		System.out.println("currentQuestion.text 7 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 7 --> " + currentAnswer.answer);
+		
+		OtherChart otherChartObj = fact.getOtherChartObject();
+		Object currentTopic = otherChartObj.getTopic();
+		String topicName = currentTopic.toString();
+		System.out.println("topic name for the other chart is retrieved again as --> " + topicName);
+		
+		if(topicName.contains("Topic1")) {
+			Topic1 objTopic1 = (Topic1)currentTopic;
+			objTopic1.setUserGivenChartName(currentAnswer.answer);
+		} else if(topicName.contains("Topic2")) {
+			Topic2 objTopic2 = (Topic2)currentTopic;
+			objTopic2.setUserGivenChartName(currentAnswer.answer);
+		} else {
+			Topic3 objTopic3 = (Topic3)currentTopic;
+			objTopic3.setUserGivenChartName(currentAnswer.answer);			
+		}
+		
+		if(topicName.contains("Topic1")) {
+			Topic1 objTopic1 = (Topic1)currentTopic;
+			System.out.println("type of other chart for Topic1 is --> " + objTopic1.getUserGivenChartName());
+		} else if(topicName.contains("Topic2")) {
+			Topic2 objTopic2 = (Topic2)currentTopic;
+			System.out.println("type of other chart for Topic2 is --> " + objTopic2.getUserGivenChartName());
+		} else {
+			Topic3 objTopic3 = (Topic3)currentTopic;
+			System.out.println("type of other chart for Topic3 is --> " + objTopic3.getUserGivenChartName());
+		}
+		
+		//fact.setContent(new LinkedList<Object>());fact.getContent().addAll(answer);
+		if(currentAnswer.answer.equals("gantChart"))
+			insert(new GantChart());
+
+		drools.halt();
+end
+
+rule "ContinueFurther"
+	salience 95
+	when
+		fact: Information()  // TODO: Bandana - Here the fact was Topic() instead, so need to check that, with this fact Information(), the flow works properly or not
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+        currentQuestion.text = "Do you need anything else (y/n)?";
+        
+        LinkedList<String> options = new LinkedList<String>();
+        options.add("yes");
+        options.add("no");
+        currentQuestion.options = options;
+        
+        insert(new WaitForContinueFurther());
+       		
+        drools.halt();
+end
+
+rule "WaitForContinueFurther"
+	salience 95
+	when 
+		WaitForContinueFurther()
+	then		
+		System.out.println("");
+		System.out.println("currentQuestion.text 8 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 8 --> " + currentAnswer.answer);
+		
+		insert(new ContinueFurther());
+
+		drools.halt();
+end
+
+rule "NeedsCommunication"
+	salience 94
+	when
+		fact: ContinueFurther()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+        currentQuestion.text = "Do you need any communication tools (y/n)?";
+        
+        LinkedList<String> options = new LinkedList<String>();
+        options.add("yes");
+        options.add("no");
+        currentQuestion.options = options;
+        
+        insert(new WaitForCommunication());
+       		
+        drools.halt();
+end
+
+rule "WaitForCommunication"
+	salience 94
+	when
+		WaitForCommunication()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 9 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 9 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("yes"))
+			insert(new CommunicationTool());
+
+		drools.halt();
+end
+
+rule "CommunicationTool"
+	salience 93
+	when
+		fact: CommunicationTool()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;		
+		currentQuestion.text = "Which type of communication tool would you prefer (a - telecommunication, b - collaboration, c - instantMessaging, d - others)?";
+
+		insert(new WaitForCommunicationTool());
+
+        drools.halt();
+end
+
+rule "WaitForCommunicationTool"
+	salience 93
+	when
+		fact: WaitForCommunicationTool()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 10 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 10 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("telecommunication"))
+			insert(new TeleCommunication());
+		if(currentAnswer.answer.equals("collaboration"))
+			insert(new Collaboration());
+		if(currentAnswer.answer.equals("instantMessaging"))		
+			insert(new InstantMessaging());
+		if(currentAnswer.answer.equals("others"))		
+			insert(new OtherCommunicationTools());
+			
+		 drools.halt();
+end
+
+rule "TeleCommunication"
+	salience 92
+	when
+		fact: TeleCommunication()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;		
+		currentQuestion.text = "Which mode of telecommunication you would prefer (a - telephoneConference, b - videoConference, c - telephoneCall, d - videoCall, e - mmsMessaging, f - smsMessaging)?";
+
+		insert(new WaitForTeleCommunication());
+
+        drools.halt();
+end
+
+rule "WaitForTeleCommunication"
+	salience 92
+	when
+		fact: WaitForTeleCommunication()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 11 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 11 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("telephoneConference"))
+			insert(new TelephoneConference());
+		if(currentAnswer.answer.equals("videoConference"))
+			insert(new VideoConference());
+		if(currentAnswer.answer.equals("telephoneCall"))
+			insert(new TelephoneCall());
+		if(currentAnswer.answer.equals("videoCall"))
+			insert(new VideoCall());
+		if(currentAnswer.answer.equals("mmsMessaging"))
+			insert(new MMSMessaging());
+		if(currentAnswer.answer.equals("smsMessaging"))
+			insert(new SMSMessaging());		
+			
+		 drools.halt();
+end
+
+rule "Collaboration"
+	salience 92
+	when
+		fact: Collaboration()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;		
+		currentQuestion.text = "Which collaboration tool would you prefer (a - textEditing, b - drawing, c - others)?";
+
+		insert(new WaitForCollaboration());
+
+        drools.halt();
+end
+
+rule "WaitForCollaboration"
+	salience 92
+	when
+		fact: WaitForCollaboration()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 12 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 12 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("textEditing"))
+			insert(new CollaborativeTextEditing());
+		if(currentAnswer.answer.equals("drawing"))
+			insert(new CollaborativeDrawing());
+		if(currentAnswer.answer.equals("others"))
+			insert(new OtherCollaborationTools());
+			
+		 drools.halt();
+end
+
+rule "OtherCollaborationTools"
+	salience 91
+	when
+		fact: OtherCollaborationTools()
+	then
+		currentQuestion.type = DroolsQuestionType.OPEN;		
+		currentQuestion.text = "Please provide the name of the collaboration tool you would prefer?";
+
+		insert(new WaitForOtherCollaborationTools());
+
+        drools.halt();
+end
+
+rule "WaitForOtherCollaborationTools"
+	salience 91
+	when
+		fact: WaitForOtherCollaborationTools()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 13 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 13 --> " + currentAnswer.answer);
+		
+		//fact.setContent(new LinkedList<Object>());fact.getContent().addAll(answer);
+			
+		drools.halt();
+end
+
+rule "InstantMessaging"
+	salience 92
+	when
+		fact: InstantMessaging()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;		
+		currentQuestion.text = "Which instant messaging tool would you prefer (a - twitter, b - facebook, c - chat, d - others)?";
+
+		insert(new WaitForInstantMessaging());
+
+        drools.halt();
+end
+
+rule "WaitForInstantMessaging"
+	salience 92
+	when
+		fact: WaitForInstantMessaging()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 14 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 14 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("twitter"))
+			insert(new Twitter());
+		if(currentAnswer.answer.equals("facebook"))
+			insert(new Facebook());
+		if(currentAnswer.answer.equals("chat"))
+			insert(new Chat());
+		if(currentAnswer.answer.equals("others"))
+			insert(new OtherInstantMessagingTools());
+			
+		 drools.halt();
+end
+
+rule "Chat"
+	salience 91
+	when
+		fact: Chat()
+	then
+		currentQuestion.type = DroolsQuestionType.OPEN;		
+		currentQuestion.text = "Please provide the name of the chat tool you would prefer?";
+
+		insert(new WaitForChat());
+
+        drools.halt();
+end
+
+rule "WaitForChat"
+	salience 91
+	when
+		fact: WaitForChat()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 15 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 15 --> " + currentAnswer.answer);
+		
+		//fact.setContent(new LinkedList<Object>());fact.getContent().addAll(answer);
+			
+		 drools.halt();
+end
+
+rule "OtherInstantMessagingTools"
+	salience 91
+	when
+		fact: OtherInstantMessagingTools()
+	then
+		currentQuestion.type = DroolsQuestionType.OPEN;		
+		currentQuestion.text = "Please provide the name of the instant messaging tool you would prefer?";
+
+		insert(new WaitForOtherInstantMessagingTools());
+
+        drools.halt();
+end
+
+rule "WaitForOtherInstantMessagingTools"
+	salience 91
+	when
+		fact: WaitForOtherInstantMessagingTools()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 16 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 16 --> " + currentAnswer.answer);
+		
+		//fact.setContent(new LinkedList<Object>());fact.getContent().addAll(answer);
+			
+		 drools.halt();
+end
+
+rule "OtherCommunicationTools"
+	salience 92
+	when
+		fact: OtherCommunicationTools()
+	then
+		currentQuestion.type = DroolsQuestionType.OPEN;		
+		currentQuestion.text = "Please provide the name of the communication tool you would prefer?";
+
+		insert(new WaitForOtherCommunicationTools());
+
+        drools.halt();
+end
+
+rule "WaitForOtherCommunicationTools"
+	salience 92
+	when
+		fact: WaitForOtherCommunicationTools()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 17 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 17 --> " + currentAnswer.answer);
+		
+		//fact.setContent(new LinkedList<Object>());fact.getContent().addAll(answer);
+			
+		 drools.halt();
+end
+
+rule "MoreInfo"
+	salience 90
+	when
+		fact: Information()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+        currentQuestion.text = "Do you want to compose the workspace now (y/n)?";
+        
+        LinkedList<String> options = new LinkedList<String>();
+        options.add("yes");
+        options.add("no");
+        currentQuestion.options = options;
+        
+       	insert(new WaitForMoreInfo());
+
+        drools.halt();
+end
+
+rule "WaitForMoreInfo"
+	salience 90
+	when
+		fact: WaitForMoreInfo()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 18 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 18 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("no"))
+			insert(new MoreDetails());
+
+		 drools.halt();
+end
+
+rule "MoreDetails"
+	salience 89
+	when
+		fact: MoreDetails()
+	then
+		currentQuestion.type = DroolsQuestionType.SINGLE_CHOICE;
+        currentQuestion.text = "Ok, then are you looking for some (a - entertainment, b - creativity, c - others)?";       
+        
+       	insert(new WaitForMoreDetails());
+
+        drools.halt();
+end
+
+rule "WaitForMoreDetails"
+	salience 89
+	when
+		fact: WaitForMoreDetails()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 19 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 19 --> " + currentAnswer.answer);
+		
+		if(currentAnswer.answer.equals("entertainment"))
+			insert(new Entertainment());
+		if(currentAnswer.answer.equals("creativity"))
+			insert(new Creativity());
+		if(currentAnswer.answer.equals("others"))
+			insert(new OtherDetails());		
+
+		 drools.halt();
+end
+
+rule "OtherDetails"
+	salience 88
+	when
+		fact: OtherDetails()
+	then
+		currentQuestion.type = DroolsQuestionType.MULTIPLE_CHOICE;
+        currentQuestion.text = "Please mention here, what else you are looking for (comma-separated list)?";
+        
+       	insert(new WaitForOtherDetails());
+
+        drools.halt();
+end
+
+rule "WaitForOtherDetails"
+	salience 88
+	when
+		fact: WaitForOtherDetails()
+	then
+		System.out.println("");
+		System.out.println("currentQuestion.text 20 --> " + currentQuestion.text);
+		System.out.println("currentAnswer.answer 20 --> " + currentAnswer.answer);
+		
+		//fact.setContent(new LinkedList<Object>());fact.getContent().addAll(answer);
+
+		drools.halt();
+end
+
+rule "EndStatement"
+	salience 5
+	when
+		fact: Information()
+	then
+		droolsState.isFinished = true;
+		System.out.println("");
+		System.out.println("Ok, composing the workspace");
+		drools.halt();
+end
